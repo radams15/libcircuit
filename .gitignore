@@ -1,6 +1,7 @@
 /build
 *.cxx
 *.so
+*.dll
 *.cl
 __pycache__
 *_wrap.h
