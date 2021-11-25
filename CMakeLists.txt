@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.9)
 
-project(circuit VERSION 1.0.1 DESCRIPTION "MNA Circuit Solving Library")
+project(circuit VERSION 1.0.1 DESCRIPTION "MNA Circuit Solving Library" LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -28,7 +28,10 @@ set(API_SRC
 	api/Unknown.h
 )
 
+add_subdirectory(${CMAKE_SOURCE_DIR}/lib/cpp_bindgen)
+
 add_library(circuit SHARED ${PROJECT_SOURCES})
+bindgen_add_library(ccircuit SOURCES ${API_SRC})
 
 target_compile_options(circuit PRIVATE -Wall -Wextra -Wpedantic)
 

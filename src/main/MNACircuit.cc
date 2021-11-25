@@ -28,7 +28,7 @@ MNACircuit::MNACircuit(std::vector<MNAComponent *> elements) {
 
     // Instead of adding the 3 lists, just copy the passed list into the
     // class attribute.
-    this->elements = elements;
+    this->elements;
 
     // Split the elements into the 3 types: battery, resistor and current source.
     for(auto e : elements){
@@ -42,6 +42,7 @@ MNACircuit::MNACircuit(std::vector<MNAComponent *> elements) {
                 resistors.push_back(e);
                 break;
         }
+		this->elements.push_back(e);
     }
 
     // Populates the node list.

@@ -57,18 +57,8 @@ public:
      * @param n1 The end node
      * @param type The element type
      * @param value The value of this component
-     * @param currentSolution The current solution if needed, otherwise it is just NAN
      */
-    MNAComponent(int n0, int n1, ElementType type, double value, double currentSolution=NAN);
-
-    /** @brief With specified current solution.
-     *
-     * New element with identical values but with a different current solution.
-     *
-     * @param newCurrent The current for the new element to have.
-     * @return
-     */
-    MNAComponent* withCurrent(double newCurrent);
+    MNAComponent(int n0, int n1, ElementType type, double value);
 
     /** @brief Node in this element.
      *

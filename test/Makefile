@@ -1,2 +1,2 @@
 all:
-	g++ main.cpp -o main `pkg-config --libs --cflags circuit` -Wall -Wextra -g
+	gcc main.c -o main -L. -l:./_MNA.so -W -g

@@ -7,6 +7,8 @@
 #define CircuitTester_MNAELEMENT_H
 
 #include <cmath>
+#include <cpp_bindgen/export.hpp>
+
 
 enum ElementType{
     MNA_BATTERY,
@@ -94,6 +96,5 @@ public:
      */
     bool equals(MNAComponent other);
 };
-
 
 #endif //CircuitTester_MNAELEMENT_H

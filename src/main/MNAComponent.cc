@@ -5,7 +5,7 @@
 #include <iostream>
 #include "MNAComponent.h"
 
-MNAComponent::MNAComponent(int n0, int n1, ElementType type, double value, double currentSolution) {
+MNAComponent::MNAComponent(int n0, int n1, ElementType type, double value) {
     // Sets the class attributes from the passed initialiser values.
     this->n0 = n0;
     this->n1 = n1;
@@ -18,11 +18,6 @@ MNAComponent::MNAComponent(int n0, int n1, ElementType type, double value, doubl
     }
 
     this->value = value;
-    this->currentSolution = currentSolution;
-}
-
-MNAComponent* MNAComponent::withCurrent(double newCurrent) {
-    return new MNAComponent(n0, n1, type, value, newCurrent);
 }
 
 bool MNAComponent::contains(int n) {
