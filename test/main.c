@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "MNA_wrap.h"
+#include "../src/main/MNA_wrap.h"
 
 int main(){
 	CompVector* comps = CompVector_new();
