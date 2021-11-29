@@ -34,6 +34,7 @@ MNACircuit::MNACircuit(std::vector<MNAComponent *> elements) {
     for(auto e : elements){
         // Each Element object is checked for its type attribute to sort it.
         // This element was set by the Resistor, Battery, CurrentSource or derivative classes.
+		MNAComponent e1 = *e;
         switch(e->type){
             case MNA_BATTERY:
                 batteries.push_back(e);
