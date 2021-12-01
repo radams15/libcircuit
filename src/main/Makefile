@@ -1,19 +1,28 @@
-all: lin
+CC=g++
+PKGCONF=pkg-config
 
-lin: swig lcomp
-	cp _MNA.so /home/ubuntu/scripts/CircuitTester/lib/MNA/libMNA.so
-	cp MNA_wrap.h /home/ubuntu/scripts/CircuitTester/lib/MNA/MNA.h
+all: swig_java swig_python comp_java comp_python
 
-win: swig wcomp
+swig_java:
+	mkdir -p java
+	swig -Wall -java -c++ -outdir java -o java/MNA.cxx MNA.i
 
-swig:
-	swig -Wall -c -c++ MNA.i
+comp_java:
+	${CC} -shared -o java/_MNA.so -I. -fPIC *.cc java/MNA.cxx `${PKGCONF} --libs --cflags eigen3` -I/usr/lib/jvm/default-java/include/ -I/usr/lib/jvm/default-java/include/linux -g
+	
+swig_python:
+	mkdir -p python
+	swig -Wall -python -c++ -outdir python -o python/MNA.cxx MNA.i
 
-lcomp:
-	g++ -shared -o _MNA.so -fPIC *.cc MNA_wrap.cxx `pkg-config --libs --cflags eigen3` -g
+comp_python:
+	${CC} -shared -o python/_MNA.so -I. -fPIC *.cc python/MNA.cxx `${PKGCONF} --libs --cflags eigen3 python3` -g
 
-wcomp:
-	x86_64-w64-mingw32-g++ -shared -o _MNA.dll -fPIC *.cc MNA_wrap.cxx `x86_64-w64-mingw32-pkg-config --libs --cflags eigen3`
+swig_perl:
+	mkdir -p perl
+	swig -Wall -perl -c++ -outdir perl -o perl/MNA.cxx MNA.i
+
+comp_perl:
+	${CC} -shared -o perl/_MNA.so -I. -fPIC *.cc perl/MNA.cxx `perl -MConfig -e 'print $Config{libs}'` -I`perl -MConfig -e 'print $$Config{archlib}'`/CORE -L`perl -MConfig -e 'print $$Config{archlib}'`/CORE `${PKGCONF} --libs --cflags eigen3` -g
 
 clean:
-	rm -rf *.so *.o *_wrap.cxx *.py *.java *.pm *.lisp *.dll
+	rm -rf *.so *.o *_wrap.cxx *.py *.java *.pm *.lisp *.dll *.class *.pm

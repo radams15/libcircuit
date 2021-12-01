@@ -5,3 +5,8 @@
 *.cl
 __pycache__
 *_wrap.h
+/src/main/python
+/src/main/java
+/src/main/perl
+*.class
+*.pm

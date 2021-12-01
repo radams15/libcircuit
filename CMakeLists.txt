@@ -28,8 +28,6 @@ set(API_SRC
 	api/Unknown.h
 )
 
-add_subdirectory(${CMAKE_SOURCE_DIR}/lib/cpp_bindgen)
-
 add_library(circuit SHARED ${PROJECT_SOURCES})
 bindgen_add_library(ccircuit SOURCES ${API_SRC})
 
