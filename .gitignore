@@ -8,5 +8,7 @@ __pycache__
 /src/main/python
 /src/main/java
 /src/main/perl
+/src/main/c
 *.class
 *.pm
+/cmake-build-debug/

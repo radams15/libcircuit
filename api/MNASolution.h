@@ -20,31 +20,10 @@
 class MNASolution {
 
 public:
-    /** @brief A map of node:voltage.
-     *
-     */
-    std::map<int, double> voltageMap;
-
     /** @brief A list of elements in the solution which
      * have a known current.
      */
     std::vector<MNAComponent*> elements;
-
-    /** @brief Initialiser
-     *
-     * @param voltageMap A map of node:voltage
-     * @param elements A list of elements in the solution which
-     * have a known current.
-     */
-    MNASolution(std::map<int, double> voltageMap, std::vector<MNAComponent*> elements);
-
-    /** @brief Whether this has every element and every element is
-     * approximately equal to the other in the opposing MNASolution.
-     *
-     * @param mnaSolution
-     * @return
-     */
-    bool equals(MNASolution mnaSolution);
 
     /** @brief Get the voltage at a specific node.
      *

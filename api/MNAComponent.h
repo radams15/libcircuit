@@ -7,7 +7,6 @@
 #define CircuitTester_MNAELEMENT_H
 
 #include <cmath>
-#include <cpp_bindgen/export.hpp>
 
 
 enum ElementType{
@@ -40,12 +39,6 @@ public:
      */
     double value;
 
-    /** @brief Current
-     *
-     * The current for this element.
-     */
-    double currentSolution;
-
     /** @brief Element Type
      *
      * This is set by derivative classes, can be MNA_BATTERY, MNA_RESISTOR or CURRENT_SRC
@@ -61,40 +54,6 @@ public:
      * @param currentSolution The current solution if needed, otherwise it is just NAN
      */
     MNAComponent(int n0, int n1, ElementType type, double value, double currentSolution=NAN);
-
-    /** @brief With specified current solution.
-     *
-     * New element with identical values but with a different current solution.
-     *
-     * @param newCurrent The current for the new element to have.
-     * @return
-     */
-    MNAComponent* withCurrent(double newCurrent);
-
-    /** @brief Node in this element.
-     *
-     * Returns true if either n0 or n1 equals n.
-     *
-     * @param n The node to check.
-     * @return whether n is contained by this element.
-     */
-    bool contains(int n);
-
-    /** @brief Get opposite node to passed
-     *
-     * Returns n1 if passed n is n0 otherwise returns n0.
-     *
-     * @param n The node to find the opposite of
-     * @return The opposite node to n
-     */
-    int opposite(int n);
-
-    /** @brief Equality to another node.
-     *
-     * @param other The node to compare against.
-     * @return Whether other has the same contents as this element.
-     */
-    bool equals(MNAComponent other);
 };
 
 #endif //CircuitTester_MNAELEMENT_H
