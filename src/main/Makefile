@@ -16,6 +16,7 @@ swig_c:
 
 comp_c:
 	${CC} -shared -o c/_MNA.so -I. -fPIC *.cc c/MNA.cxx `${PKGCONF} --libs --cflags eigen3` -g
+	rm c/MNA.cxx
 
 swig_java:
 	mkdir -p java
@@ -23,6 +24,7 @@ swig_java:
 
 comp_java:
 	${CC} -shared -o java/_MNA.so -I. -fPIC *.cc java/MNA.cxx `${PKGCONF} --libs --cflags eigen3` -I${JAVA_HOME}/include/ -I${JAVA_HOME}/include/linux -g
+	rm java/MNA.cxx
 	
 swig_python:
 	mkdir -p python
@@ -30,6 +32,7 @@ swig_python:
 
 comp_python:
 	${CC} -shared -o python/_MNA.so -I. -fPIC *.cc python/MNA.cxx `${PKGCONF} --libs --cflags eigen3 python3`
+	rm python/MNA.cxx
 
 swig_perl:
 	mkdir -p perl
@@ -44,4 +47,4 @@ install:
 	cp c/MNA.h /home/rhys/scripts/CircuitTester/lib/MNA/
 
 clean:
-	rm -rf *.so *.o *_wrap.cxx *.py *.java *.pm *.lisp *.dll *.class *.pm
+	rm -rf *.so *.o *_wrap.cxx *.py *.java *.pm *.lisp *.dll *.class *.pm c/ java/ python/
