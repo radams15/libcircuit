@@ -8,7 +8,7 @@
 
 #define APPROX_EPSILON 1e-6
 
-MNASolution::MNASolution(std::map<int, double> voltageMap, std::vector<MNAComponent *> elements) {
+MNASolution::MNASolution(std::map<int, double> voltageMap, std::vector<MNAComponent> elements) {
     // Setup class variables.
     this->voltageMap = voltageMap;
     this->elements = elements;
@@ -72,19 +72,21 @@ bool MNASolution::hasAllElements(MNASolution mnaSolution) {
     // element in mnaSolution.
     return std::all_of(mnaSolution.elements.begin(),
                        mnaSolution.elements.end(),
-                       [this](MNAComponent* e){
+                       [this](MNAComponent e){
         return containsElement(e);
     });
 }
 
-bool MNASolution::containsElement(MNAComponent* element) {
+bool MNASolution::containsElement(MNAComponent element) {
     // Returns whether any of the elements in this are equal
     // to the passed element.
     return std::any_of(elements.begin(),
                        elements.end(),
-                       [this, element](MNAComponent* e){
-        return e->n0 == element->n0 && e->n1 == element->n1 && numApproxEquals(e->currentSolution, element->currentSolution);
+                       [element](MNAComponent e){
+        return e.equals(element);
     });
+
+    return true;
 }
 
 bool MNASolution::numApproxEquals(double a, double b) {

@@ -46,7 +46,7 @@ private:
      * @return Whether the element is inside the elements
      * list.
      */
-    bool containsElement(MNAComponent* element);
+    bool containsElement(MNAComponent element);
 
 public:
     /** @brief A map of node:voltage.
@@ -57,7 +57,7 @@ public:
     /** @brief A list of elements in the solution which
      * have a known current.
      */
-    std::vector<MNAComponent*> elements;
+    std::vector<MNAComponent> elements;
 
     /** @brief Initialiser
      *
@@ -65,7 +65,7 @@ public:
      * @param elements A list of elements in the solution which
      * have a known current.
      */
-    MNASolution(std::map<int, double> voltageMap, std::vector<MNAComponent*> elements);
+    MNASolution(std::map<int, double> voltageMap, std::vector<MNAComponent> elements);
 
     /** @brief Whether this has every element and every element is
      * approximately equal to the other in the opposing MNASolution.

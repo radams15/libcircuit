@@ -64,7 +64,7 @@ public:
     /** @brief The element for which the current is unknown.
      *
      */
-    MNAComponent* element;
+    MNAComponent element;
 
     /** @brief Initialiser
      *
@@ -73,7 +73,7 @@ public:
      *
      * @param element The element for which current is unknown.
      */
-    explicit UnknownCurrent(MNAComponent* element);
+    explicit UnknownCurrent(MNAComponent element);
 
     bool equals(Unknown* other) override;
 };

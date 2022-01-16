@@ -4,19 +4,20 @@
 
 #include "Unknown.h"
 
-UnknownCurrent::UnknownCurrent(MNAComponent *element) : Unknown(CURRENT) {
-    this->element = element;
+UnknownCurrent::UnknownCurrent(MNAComponent element) : Unknown(CURRENT), element(element) {
+
 }
 
 bool UnknownCurrent::equals(Unknown* other) {
     // If they are not the same type they are obviously not equal.
+
     if(other->type != Unknown::CURRENT){
         return false;
     }
 
     // Cast into an UnknownCurrent to get proper class attributes.
-    auto* c = (UnknownCurrent*) other;
-    return c->element == element;
+    auto c = (UnknownCurrent*) other;
+    return c->element.equals(element);
 }
 
 UnknownVoltage::UnknownVoltage(int node)  : Unknown(VOLTAGE) {
@@ -30,7 +31,7 @@ bool UnknownVoltage::equals(Unknown *other) {
     }
 
     // Cast into an UnknownVoltage to get proper class attributes.
-    auto* c = (UnknownVoltage*) other;
+    auto c = (UnknownVoltage*) other;
     return c->node == node;
 }
 
