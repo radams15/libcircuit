@@ -10,7 +10,7 @@
 %include "std_map.i"
 
 namespace std {
-	%template(CompVector) vector<MNAComponent*>;
+	%template(CompVector) vector<MNAComponent>;
 }
 
 %include "MNACircuit.h"

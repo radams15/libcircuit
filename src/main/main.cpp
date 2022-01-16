@@ -17,11 +17,11 @@ int main(){
             {1, 10.0},
     };
 
-    MNASolution dessol(vmap, {bat});
+    auto dessol = new MNASolution(vmap, {bat});
 
     auto sol = cir->solve();
 
-    if(!sol.equals(dessol)){
+    if(!sol.equals(*dessol)){
         std::cerr << "FAIL 1\n";
     }
 

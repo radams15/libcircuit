@@ -10,6 +10,11 @@ python: swig_python comp_python
 
 c: swig_c comp_c
 
+cpp:
+	mkdir -p cpp
+	cp ../../api/* cpp
+	${CC} -shared -o cpp/_MNA.so -I. -fPIC *.cc `${PKGCONF} --libs --cflags eigen3` -g
+
 swig_c:
 	mkdir -p c
 	swig -Wall -c -c++ -outdir c -o c/MNA.cxx -oh c/MNA.h MNA.i

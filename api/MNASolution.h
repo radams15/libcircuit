@@ -23,7 +23,15 @@ public:
     /** @brief A list of elements in the solution which
      * have a known current.
      */
-    std::vector<MNAComponent*> elements;
+    std::vector<MNAComponent> elements;
+
+    /** @brief Whether this has every element and every element is
+     * approximately equal to the other in the opposing MNASolution.
+     *
+     * @param mnaSolution
+     * @return
+     */
+    bool equals(MNASolution mnaSolution);
 
     /** @brief Get the voltage at a specific node.
      *

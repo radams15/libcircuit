@@ -53,7 +53,7 @@ public:
      * @param value The value of this component
      * @param currentSolution The current solution if needed, otherwise it is just NAN
      */
-    MNAComponent(int n0, int n1, ElementType type, double value, double currentSolution=NAN);
+    MNAComponent(int n0, int n1, ElementType type, double value);
 };
 
 #endif //CircuitTester_MNAELEMENT_H

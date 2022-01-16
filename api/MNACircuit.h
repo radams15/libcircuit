@@ -26,13 +26,13 @@ public:
      *
      * @param elements The list of all circuit elements.
     */
-    explicit MNACircuit(std::vector<MNAComponent *> elements);
+    explicit MNACircuit(std::vector<MNAComponent> elements);
 
     /** @brief Solves the circuit using linear algebra and matrices.
      *
      * @return An MNASolution class for this circuit.
      */
-    MNASolution* solve();
+    MNASolution solve();
 };
 
 #endif //CircuitTester_MNACIRCUIT_H
