@@ -5,8 +5,8 @@
 #ifndef CIRCUITTESTER_MNA_H
 #define CIRCUITTESTER_MNA_H
 
-#include "MNACircuit.h"
-#include "MNASolution.h"
-#include "MNAComponent.h"
+#include "Circuit.h"
+#include "Solution.h"
+#include "Component.h"
 
 #endif //CIRCUITTESTER_MNA_H

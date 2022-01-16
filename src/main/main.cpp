@@ -3,21 +3,21 @@
 //
 
 #include <iostream>
-#include "MNAComponent.h"
-#include "MNACircuit.h"
+#include "Component.h"
+#include "Circuit.h"
 
 int main(){
-    auto bat = MNAComponent(0, 1, MNA_BATTERY, 10);
-    auto res = MNAComponent(1, 0, MNA_RESISTOR, 4);
+    auto bat = Component(0, 1, MNA_BATTERY, 10);
+    auto res = Component(1, 0, MNA_RESISTOR, 4);
 
-    auto cir = new MNACircuit({bat, res});
+    auto cir = new Circuit({bat, res});
 
     std::map<int, double> vmap = {
             {0, 0.0},
             {1, 10.0},
     };
 
-    auto dessol = new MNASolution(vmap, {bat});
+    auto dessol = new Solution(vmap, {bat});
 
     auto sol = cir->solve();
 

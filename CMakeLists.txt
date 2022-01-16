@@ -11,12 +11,12 @@ add_executable(libcircuit
         src/main/Equation.h
         src/main/main.cpp
         src/main/MNA.h
-        src/main/MNACircuit.cc
-        src/main/MNACircuit.h
-        src/main/MNAComponent.cc
-        src/main/MNAComponent.h
-        src/main/MNASolution.cc
-        src/main/MNASolution.h
+        src/main/Circuit.cc
+        src/main/Circuit.h
+        src/main/Component.cc
+        src/main/Component.h
+        src/main/Solution.cc
+        src/main/Solution.h
         src/main/Term.cc
         src/main/Term.h
         src/main/Unknown.cc

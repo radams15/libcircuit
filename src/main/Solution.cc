@@ -4,17 +4,17 @@
 
 #include <iostream>
 #include <algorithm>
-#include "MNASolution.h"
+#include "Solution.h"
 
 #define APPROX_EPSILON 1e-6
 
-MNASolution::MNASolution(std::map<int, double> voltageMap, std::vector<MNAComponent> elements) {
+Solution::Solution(std::map<int, double> voltageMap, std::vector<Component> components) {
     // Setup class variables.
     this->voltageMap = voltageMap;
-    this->elements = elements;
+    this->components = components;
 }
 
-bool MNASolution::equals(MNASolution mnaSolution) {
+bool Solution::equals(Solution mnaSolution) {
     std::vector<int> nodes; // The nodes of this circuit.
     std::vector<int> otherNodes; // The nodes of the circuit to compare to.
 
@@ -34,12 +34,12 @@ bool MNASolution::equals(MNASolution mnaSolution) {
     }
 
     // Check if all the currents in this are in solution.
-    if((!hasAllElements(mnaSolution))){
+    if((!hasAllComponents(mnaSolution))){
         return false;
     }
 
     // Check if all the currents in solution are in this.
-    if(!mnaSolution.hasAllElements(*this)) {
+    if(!mnaSolution.hasAllComponents(*this)) {
         return false;
     }
 
@@ -47,12 +47,12 @@ bool MNASolution::equals(MNASolution mnaSolution) {
     return true;
 }
 
-double MNASolution::getNodeVoltage(int nodeIndex) {
+double Solution::getNodeVoltage(int nodeIndex) {
     // Gets the voltage from the voltageMap.
     return voltageMap[nodeIndex];
 }
 
-double MNASolution::getCurrent(MNAComponent resistor) {
+double Solution::getCurrent(Component resistor) {
     // Returns the current by doing V=IR, which is equal to I=V/R.
     double v = getVoltage(resistor);
     double r = resistor.value;
@@ -61,35 +61,35 @@ double MNASolution::getCurrent(MNAComponent resistor) {
     return  i;
 }
 
-double MNASolution::getVoltage(MNAComponent element) {
+double Solution::getVoltage(Component component) {
     // Gets the difference between the voltages the start and end nodes
     // as voltage is the potential difference between two components.
-    return std::abs(voltageMap.at(element.n1) - voltageMap.at(element.n0));
+    return std::abs(voltageMap.at(component.n1) - voltageMap.at(component.n0));
 }
 
-bool MNASolution::hasAllElements(MNASolution mnaSolution) {
-    // Return whether containsElement returns true for every
-    // element in mnaSolution.
-    return std::all_of(mnaSolution.elements.begin(),
-                       mnaSolution.elements.end(),
-                       [this](MNAComponent e){
-        return containsElement(e);
+bool Solution::hasAllComponents(Solution mnaSolution) {
+    // Return whether containsComponent returns true for every
+    // component in mnaSolution.
+    return std::all_of(mnaSolution.components.begin(),
+                       mnaSolution.components.end(),
+                       [this](Component e){
+        return containsComponent(e);
     });
 }
 
-bool MNASolution::containsElement(MNAComponent element) {
-    // Returns whether any of the elements in this are equal
-    // to the passed element.
-    return std::any_of(elements.begin(),
-                       elements.end(),
-                       [element](MNAComponent e){
-        return e.equals(element);
+bool Solution::containsComponent(Component component) {
+    // Returns whether any of the components in this are equal
+    // to the passed component.
+    return std::any_of(components.begin(),
+                       components.end(),
+                       [component](Component e){
+        return e.equals(component);
     });
 
     return true;
 }
 
-bool MNASolution::numApproxEquals(double a, double b) {
+bool Solution::numApproxEquals(double a, double b) {
     // Finds the difference between a and b then compares the difference
     // to an epsilon.
     return fabs(a - b) <= ( (fabs(a) < fabs(b) ? fabs(b) : fabs(a)) * APPROX_EPSILON);

@@ -10,24 +10,24 @@
 #include <map>
 #include <string>
 
-#include "MNAComponent.h"
+#include "Component.h"
 #include "Equation.h"
-#include "MNASolution.h"
+#include "Solution.h"
 
 /** @brief Main class that holds a circuit for
  * modified nodal analysis (MNA).
  *
  */
-class MNACircuit {
+class Circuit {
 private:
-    /** @brief Holds all the MNAElements that are batteries */
-    std::vector<MNAComponent> batteries;
+    /** @brief Holds all the MNAComponents that are batteries */
+    std::vector<Component> batteries;
 
-    /** @brief Holds all the MNAElements that are resistors */
-    std::vector<MNAComponent> resistors;
+    /** @brief Holds all the MNAComponents that are resistors */
+    std::vector<Component> resistors;
 
-    /** @brief Holds all the MNAElements combined */
-    std::vector<MNAComponent> elements;
+    /** @brief Holds all the MNAComponents combined */
+    std::vector<Component> components;
 
     /** @brief The total number of nodes */
     int nodeCount;
@@ -35,14 +35,14 @@ private:
     /** @brief All the nodes in the circuit*/
     std::vector<int> nodes;
 
-    /** @brief Pops and returns the first element of the vector vec.
+    /** @brief Pops and returns the first component of the vector vec.
      *
      * This was written as the STL only has a pop_back method, not
      * a pop_front method.
      *
      * @tparam T The type that is in the vector.
-     * @param vec A vector to remove the first element of
-     * @return The first element that was removed.
+     * @param vec A vector to remove the first component of
+     * @return The first component that was removed.
      */
     template<typename T>
     T vecPopFront(std::vector<T>& vec);
@@ -83,34 +83,34 @@ private:
      */
     std::vector<UnknownCurrent*> getUnknownCurrents();
 
-    /** @brief Returns the index of the element in the array.
+    /** @brief Returns the index of the component in the array.
      *
      * If it does not exist, returns -1.
      *
-     * @tparam T The type of the vector, and of the element.
+     * @tparam T The type of the vector, and of the component.
      * @param array The vector of T's.
-     * @param element The element to search for.
-     * @return The element index in the vector, or -1 if the element is not found.
+     * @param component The component to search for.
+     * @return The component index in the vector, or -1 if the component is not found.
      */
     template <typename T>
-    int getElementIndex(std::vector<T*> array, T* element);
+    int getComponentIndex(std::vector<T*> array, T* component);
 
 public:
-    /** @brief Initialises MNACircuit object.
+    /** @brief Initialises Circuit object.
      *
-     * This initialises the MNACircuit, as well as categorising
-     * the elements into the batteries, resistors and currentSources
+     * This initialises the Circuit, as well as categorising
+     * the components into the batteries, resistors and currentSources
      * vectors. Also generates nodeSet, nodeCount and nodes variables.
      *
-     * @param elements The list of all circuit elements.
+     * @param components The list of all circuit components.
     */
-    explicit MNACircuit(std::vector<MNAComponent> elements);
+    explicit Circuit(std::vector<Component> components);
 
     /** @brief Solves the circuit using linear algebra and matrices.
      *
-     * @return An MNASolution class for this circuit.
+     * @return An Solution class for this circuit.
      */
-    MNASolution solve();
+    Solution solve();
 
     /** Finds the nodes that are connected to the passed node.
      *

@@ -3,8 +3,8 @@
 //
 
 #include <iostream>
-#include "MNAComponent.h"
-#include "MNACircuit.h"
+#include "Component.h"
+#include "Circuit.h"
 
 int main(){
     MNAComponent bat(0, 1, MNA_BATTERY, 10);

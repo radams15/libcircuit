@@ -12,23 +12,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96f5d6af-3f7f-4c64-a6c5-fba0e0e503ba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/cpp/MNACircuit.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/cpp/MNAComponent.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/cpp/MNASolution.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/vgcore.110642" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/MNACircuit.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/MNACircuit.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/MNAComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/MNAComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/MNASolution.h" beforeDir="false" afterPath="$PROJECT_DIR$/api/MNASolution.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/make.sh" beforeDir="false" afterPath="$PROJECT_DIR$/make.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Equation.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Equation.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MNA.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MNA.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/MNA.i" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MNA.i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MNACircuit.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Circuit.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MNACircuit.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Circuit.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MNAComponent.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Component.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MNAComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Component.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MNASolution.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Solution.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MNASolution.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Solution.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Unknown.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Unknown.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Unknown.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Unknown.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/cpp/MNACircuit.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/cpp/MNAComponent.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/cpp/MNASolution.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/test/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/main" beforeDir="false" afterPath="$PROJECT_DIR$/test/main" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/test/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +39,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -70,15 +72,10 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
     <property name="settings.editor.selected.configurable" value="CLionExternalConfigurable" />
   </component>
-  <component name="RunManager" selected="Makefile Application.testcpp">
+  <component name="RunManager" selected="CMake Application.libcircuit">
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <configuration name="testcpp" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="libcircuit" TARGET_NAME="testcpp" CONFIG_NAME="testcpp" version="1" RUN_PATH="$PROJECT_DIR$/test/main">
@@ -87,6 +84,11 @@
       </envs>
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="libcircuit" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="libcircuit" TARGET_NAME="libcircuit" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="libcircuit" RUN_TARGET_NAME="libcircuit">
@@ -109,7 +111,8 @@
       <updated>1637942531472</updated>
       <workItem from="1637942534768" duration="1677000" />
       <workItem from="1638377926684" duration="11000" />
-      <workItem from="1642345114086" duration="6466000" />
+      <workItem from="1642345114086" duration="6512000" />
+      <workItem from="1642351689586" duration="379000" />
     </task>
     <task id="LOCAL-00001" summary="Removed as many pointers as possible.">
       <created>1642349104241</created>
@@ -118,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642349104241</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Broken for now.">
+      <created>1642351627306</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1642351627307</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,6 +137,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Removed as many pointers as possible." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed as many pointers as possible." />
+    <MESSAGE value="Broken for now." />
+    <option name="LAST_COMMIT_MESSAGE" value="Broken for now." />
   </component>
 </project>
