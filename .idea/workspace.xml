@@ -13,11 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="96f5d6af-3f7f-4c64-a6c5-fba0e0e503ba" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Circuit.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Circuit.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Circuit.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Circuit.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/MNA.i" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MNA.i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +98,7 @@
       <workItem from="1642345114086" duration="6512000" />
       <workItem from="1642351689586" duration="554000" />
       <workItem from="1642441339230" duration="35000" />
-      <workItem from="1642441685179" duration="893000" />
+      <workItem from="1642441685179" duration="951000" />
     </task>
     <task id="LOCAL-00001" summary="Removed as many pointers as possible.">
       <created>1642349104241</created>
@@ -125,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642352174344</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added nice Component* constructor for language bindings.">
+      <created>1642442628414</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1642442628414</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +139,7 @@
     <MESSAGE value="Removed as many pointers as possible." />
     <MESSAGE value="Broken for now." />
     <MESSAGE value="Great rename, like in radams15/CircuitTester." />
-    <option name="LAST_COMMIT_MESSAGE" value="Great rename, like in radams15/CircuitTester." />
+    <MESSAGE value="Added nice Component* constructor for language bindings." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added nice Component* constructor for language bindings." />
   </component>
 </project>

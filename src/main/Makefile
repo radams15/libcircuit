@@ -23,7 +23,7 @@ swig_go:
 
 comp_go:
 	${CC} -shared -o go/_MNA.so -I. -fPIC *.cc go/MNA.cxx `${PKGCONF} --libs --cflags eigen3` -g
-	rm c/MNA.cxx
+	rm go/MNA.cxx
 
 
 swig_c:
