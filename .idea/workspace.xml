@@ -12,7 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96f5d6af-3f7f-4c64-a6c5-fba0e0e503ba" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Makefile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +97,7 @@
       <workItem from="1642345114086" duration="6512000" />
       <workItem from="1642351689586" duration="554000" />
       <workItem from="1642441339230" duration="35000" />
-      <workItem from="1642441685179" duration="951000" />
+      <workItem from="1642441685179" duration="964000" />
     </task>
     <task id="LOCAL-00001" summary="Removed as many pointers as possible.">
       <created>1642349104241</created>
@@ -128,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642442628414</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added nice Component* constructor for language bindings.">
+      <created>1642442641301</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1642442641301</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

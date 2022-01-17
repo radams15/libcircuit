@@ -10,7 +10,7 @@ python: swig_python comp_python
 
 c: swig_c comp_c
 
-go: swig_go
+go: swig_go comp_go
 
 cpp:
 	mkdir -p cpp
