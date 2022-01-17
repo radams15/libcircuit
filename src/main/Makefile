@@ -10,10 +10,21 @@ python: swig_python comp_python
 
 c: swig_c comp_c
 
+go: swig_go
+
 cpp:
 	mkdir -p cpp
 	cp ../../api/* cpp
 	${CC} -shared -o cpp/_MNA.so -I. -fPIC *.cc `${PKGCONF} --libs --cflags eigen3` -g
+
+swig_go:
+	mkdir -p go
+	swig -Wall -go -c++ -outdir go -o go/MNA.cxx -intgosize 32 MNA.i
+
+comp_go:
+	${CC} -shared -o go/_MNA.so -I. -fPIC *.cc go/MNA.cxx `${PKGCONF} --libs --cflags eigen3` -g
+	rm c/MNA.cxx
+
 
 swig_c:
 	mkdir -p c

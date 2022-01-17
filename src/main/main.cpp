@@ -10,7 +10,9 @@ int main(){
     auto bat = Component(0, 1, MNA_BATTERY, 10);
     auto res = Component(1, 0, MNA_RESISTOR, 4);
 
-    auto cir = new Circuit({bat, res});
+    Component list[] = {bat, res};
+
+    auto cir = new Circuit(list, 2);
 
     std::map<int, double> vmap = {
             {0, 0.0},

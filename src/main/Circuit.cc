@@ -6,6 +6,7 @@
 
 #include <Eigen/Dense>
 #include <iostream>
+#include <utility>
 
 #define CUR_IN 1
 #define CUR_OUT 0
@@ -21,6 +22,20 @@ T Circuit::vecPopFront(std::vector<T>& vec){
 }
 
 Circuit::Circuit(std::vector<Component> components) {
+    setup(std::move(components));
+}
+
+Circuit::Circuit(Component* components, int length) {
+    std::vector<Component> vector;
+
+    for(int i=0 ; i<length ; i++){
+        vector.push_back(components[i]);
+    }
+
+    setup(vector);
+}
+
+void Circuit::setup(std::vector<Component> components) {
     // Clear the batteries, resistors and currentSources lists just in case they
     // contain some components for any reason.
     batteries.clear();
@@ -38,7 +53,7 @@ Circuit::Circuit(std::vector<Component> components) {
                 resistors.push_back(e);
                 break;
         }
-		this->components.push_back(e);
+        this->components.push_back(e);
     }
 
     // Populates the node list.
@@ -54,6 +69,7 @@ Circuit::Circuit(std::vector<Component> components) {
     // Counts the number of nodes.
     nodeCount = nodes.size();
 }
+
 
 int Circuit::getNumUnknownCurrents() {
     // Batteries are the only component with an unknown resistance and therefore an unknown current.

@@ -95,6 +95,8 @@ private:
     template <typename T>
     int getComponentIndex(std::vector<T*> array, T* component);
 
+    void setup(std::vector<Component> components);
+
 public:
     /** @brief Initialises Circuit object.
      *
@@ -105,6 +107,8 @@ public:
      * @param components The list of all circuit components.
     */
     explicit Circuit(std::vector<Component> components);
+
+    explicit Circuit(Component* components, int length);
 
     /** @brief Solves the circuit using linear algebra and matrices.
      *

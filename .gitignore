@@ -12,3 +12,4 @@ __pycache__
 *.class
 *.pm
 /cmake-build-debug/
+/src/main/go/
