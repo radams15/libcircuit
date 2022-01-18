@@ -95,7 +95,11 @@ private:
     template <typename T>
     int getComponentIndex(std::vector<T*> array, T* component);
 
-    void setup(std::vector<Component> components);
+    void sort();
+
+    bool solved = false;
+
+    Solution* solution;
 
 public:
     /** @brief Initialises Circuit object.
@@ -109,6 +113,10 @@ public:
     explicit Circuit(std::vector<Component> components);
 
     explicit Circuit(Component* components, int length);
+
+    explicit Circuit();
+
+    Component addComponent(int n0, int n1, ComponentType type, double value);
 
     /** @brief Solves the circuit using linear algebra and matrices.
      *
@@ -132,6 +140,9 @@ public:
      * @return
      */
     std::vector<Term> getCurrents(int node, int side);
+
+    double getVoltage(Component component);
+    double getCurrent(Component component);
 };
 
 #endif //CircuitTester_MNACIRCUIT_H

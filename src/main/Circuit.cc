@@ -21,8 +21,17 @@ T Circuit::vecPopFront(std::vector<T>& vec){
     return out;
 }
 
+Circuit::Circuit() {
+    this->components.clear();
+
+    solved = false;
+}
+
+
 Circuit::Circuit(std::vector<Component> components) {
-    setup(std::move(components));
+    this->components = std::move(components);
+
+    solved = false;
 }
 
 Circuit::Circuit(Component* components, int length) {
@@ -32,10 +41,12 @@ Circuit::Circuit(Component* components, int length) {
         vector.push_back(components[i]);
     }
 
-    setup(vector);
+    this->components = vector;
+
+    solved = false;
 }
 
-void Circuit::setup(std::vector<Component> components) {
+void Circuit::sort() {
     // Clear the batteries, resistors and currentSources lists just in case they
     // contain some components for any reason.
     batteries.clear();
@@ -53,7 +64,6 @@ void Circuit::setup(std::vector<Component> components) {
                 resistors.push_back(e);
                 break;
         }
-        this->components.push_back(e);
     }
 
     // Populates the node list.
@@ -241,6 +251,12 @@ std::vector<UnknownCurrent*> Circuit::getUnknownCurrents() {
 }
 
 Solution Circuit::solve() {
+    if(solved){
+        return *solution;
+    }
+
+    sort();
+
     auto equations = getEquations();
     auto unknownCurrents = getUnknownCurrents();
     std::vector<UnknownVoltage*> unknownVoltages;
@@ -293,7 +309,11 @@ Solution Circuit::solve() {
 
     }
 
-    return Solution(voltageMap, elems);
+    solved = true;
+
+    solution = new Solution(voltageMap, elems);
+
+    return *solution;
 }
 
 template <typename T>
@@ -308,4 +328,25 @@ int Circuit::getComponentIndex(std::vector<T*> array, T* component) {
 
     // Not found, return -1.
     return -1;
+}
+
+Component Circuit::addComponent(int n0, int n1, ComponentType type, double value) {
+    Component out(n0, n1, type, value);
+    components.push_back(out);
+    solved = false;
+
+    return out;
+}
+
+
+double Circuit::getVoltage(Component component) {
+    if(!solved){ return -1; }
+
+    return solution->getVoltage(component);
+}
+
+double Circuit::getCurrent(Component component) {
+    if(!solved){ return -1; }
+
+    return solution->getCurrent(component);
 }

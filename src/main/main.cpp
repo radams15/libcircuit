@@ -7,12 +7,10 @@
 #include "Circuit.h"
 
 int main(){
-    auto bat = Component(0, 1, MNA_BATTERY, 10);
-    auto res = Component(1, 0, MNA_RESISTOR, 4);
+    auto cir = new Circuit();
 
-    Component list[] = {bat, res};
-
-    auto cir = new Circuit(list, 2);
+    auto bat = cir->addComponent(0, 1, MNA_BATTERY, 10);
+    auto res = cir->addComponent(1, 0, MNA_RESISTOR, 4);
 
     std::map<int, double> vmap = {
             {0, 0.0},
@@ -27,7 +25,7 @@ int main(){
         std::cerr << "FAIL 1\n";
     }
 
-    if(sol.getCurrent(res) != 2.5){
+    if(cir->getCurrent(res) != 2.5){
         std::cerr << "FAIL 2\n";
     }
 }
