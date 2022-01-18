@@ -1,6 +1,7 @@
 CC=g++
 PKGCONF=pkg-config
 JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+EIGEN="../../lib/eigen"
 
 all: java python c
 
@@ -10,20 +11,10 @@ python: swig_python comp_python
 
 c: swig_c comp_c
 
-go: swig_go comp_go
-
 cpp:
 	mkdir -p cpp
 	cp ../../api/* cpp
 	${CC} -shared -o cpp/_MNA.so -I. -fPIC *.cc `${PKGCONF} --libs --cflags eigen3` -g
-
-swig_go:
-	mkdir -p go
-	swig -Wall -go -c++ -outdir go -o go/MNA.cxx -intgosize 32 MNA.i
-
-comp_go:
-	${CC} -shared -o go/_MNA.so -I. -fPIC *.cc go/MNA.cxx `${PKGCONF} --libs --cflags eigen3` -g
-	rm go/MNA.cxx
 
 
 swig_c:
@@ -31,7 +22,7 @@ swig_c:
 	swig -Wall -c -c++ -outdir c -o c/MNA.cxx -oh c/MNA.h MNA.i
 
 comp_c:
-	${CC} -shared -o c/_MNA.so -I. -fPIC *.cc c/MNA.cxx `${PKGCONF} --libs --cflags eigen3` -g
+	${CC} -shared -o c/_MNA.so -I. -fPIC *.cc c/MNA.cxx -I${EIGEN} -g
 	rm c/MNA.cxx
 
 swig_java:
@@ -39,7 +30,7 @@ swig_java:
 	swig -Wall -java -c++ -outdir java -o java/MNA.cxx MNA.i
 
 comp_java:
-	${CC} -shared -o java/_MNA.so -I. -fPIC *.cc java/MNA.cxx `${PKGCONF} --libs --cflags eigen3` -I${JAVA_HOME}/include/ -I${JAVA_HOME}/include/linux -g
+	${CC} -shared -o java/_MNA.so -I. -fPIC *.cc java/MNA.cxx  -I${EIGEN} -I${JAVA_HOME}/include/ -I${JAVA_HOME}/include/linux -g
 	rm java/MNA.cxx
 	
 swig_python:
@@ -47,7 +38,7 @@ swig_python:
 	swig -Wall -python -c++ -outdir python -o python/MNA.cxx MNA.i
 
 comp_python:
-	${CC} -shared -o python/_MNA.so -I. -fPIC *.cc python/MNA.cxx `${PKGCONF} --libs --cflags eigen3 python3`
+	${CC} -shared -o python/_MNA.so -I. -fPIC *.cc python/MNA.cxx `${PKGCONF} --libs --cflags python3` -I${EIGEN}
 	rm python/MNA.cxx
 
 swig_perl:
@@ -55,7 +46,7 @@ swig_perl:
 	swig -Wall -perl -c++ -outdir perl -o perl/MNA.cxx MNA.i
 
 comp_perl:
-	${CC} -shared -o perl/_MNA.so -I. -fPIC *.cc perl/MNA.cxx `perl -MConfig -e 'print $Config{libs}'` -I`perl -MConfig -e 'print $$Config{archlib}'`/CORE -L`perl -MConfig -e 'print $$Config{archlib}'`/CORE `${PKGCONF} --libs --cflags eigen3`
+	${CC} -shared -o perl/_MNA.so -I. -fPIC *.cc perl/MNA.cxx `perl -MConfig -e 'print $Config{libs}'` -I`perl -MConfig -e 'print $$Config{archlib}'`/CORE -L`perl -MConfig -e 'print $$Config{archlib}'`/CORE  -I${EIGEN}
 
 install:
 	mkdir -p /home/rhys/scripts/CircuitTester/lib/MNA/

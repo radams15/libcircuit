@@ -1,7 +1,8 @@
-from main import MNA
+from main.python import MNA
 
-cir =[MNA.MNAComponent(0, 1, MNA.MNA_BATTERY, 9), MNA.MNAComponent(1, 0, MNA.MNA_RESISTOR, 2)]
+cir = MNA.Circuit()
 
-a = MNA.MNACircuit(cir)
+bat = cir.addComponent(0, 1, MNA.MNA_BATTERY, 9)
+res = cir.addComponent(1, 0, MNA.MNA_RESISTOR, 2)
 
-print(a.solve().getNodeVoltage(1))
+print(cir.getCurrent(res))

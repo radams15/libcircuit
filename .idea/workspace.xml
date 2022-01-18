@@ -12,12 +12,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96f5d6af-3f7f-4c64-a6c5-fba0e0e503ba" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libcircuit.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Circuit.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Circuit.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Circuit.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Circuit.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +103,7 @@
       <workItem from="1642441339230" duration="35000" />
       <workItem from="1642441685179" duration="964000" />
       <workItem from="1642510209406" duration="29000" />
-      <workItem from="1642539090712" duration="1367000" />
+      <workItem from="1642539090712" duration="2067000" />
     </task>
     <task id="LOCAL-00001" summary="Removed as many pointers as possible.">
       <created>1642349104241</created>
@@ -141,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642442641301</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added pointer methods to Circuit.">
+      <created>1642540484582</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1642540484582</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,6 +159,7 @@
     <MESSAGE value="Broken for now." />
     <MESSAGE value="Great rename, like in radams15/CircuitTester." />
     <MESSAGE value="Added nice Component* constructor for language bindings." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added nice Component* constructor for language bindings." />
+    <MESSAGE value="Added pointer methods to Circuit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added pointer methods to Circuit." />
   </component>
 </project>

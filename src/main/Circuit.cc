@@ -340,13 +340,13 @@ Component Circuit::addComponent(int n0, int n1, ComponentType type, double value
 
 
 double Circuit::getVoltage(Component component) {
-    if(!solved){ return -1; }
+    if(!solved){ solve(); }
 
     return solution->getVoltage(component);
 }
 
 double Circuit::getCurrent(Component component) {
-    if(!solved){ return -1; }
+    if(!solved){ solve(); }
 
     return solution->getCurrent(component);
 }
