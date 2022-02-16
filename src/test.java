@@ -1,6 +1,8 @@
+import uk.co.therhys.MNA.*;
+
 class test{
 	static{
-		System.load("/home/ubuntu/scripts/libcircuit/src/main/java/_MNA.so");
+		System.load("/mnt/share/scripts/libcircuit/src/main/java/libMNA.so");
 	}
 
 	public static void main(String[] args){
@@ -8,15 +10,15 @@ class test{
 	}
 	
 	public test(){
-		MNAComponent bat = new MNAComponent(0, 1, ElementType.MNA_BATTERY, 9);
-		MNAComponent res = new MNAComponent(1, 0, ElementType.MNA_RESISTOR, 2);
+		Component bat = new Component(0, 1, ComponentType.MNA_BATTERY, 9);
+		Component res = new Component(1, 0, ComponentType.MNA_RESISTOR, 2);
 		
 		CompVector comps = new CompVector();
 		comps.add(bat);
 		comps.add(res);
 		
-		MNACircuit cir = new MNACircuit(comps);
-		MNASolution sol = cir.solve();
+		Circuit cir = new Circuit(comps);
+		Solution sol = cir.solve();
 		
 		double i1 = sol.getCurrent(res);
 		

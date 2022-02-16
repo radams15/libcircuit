@@ -8,22 +8,24 @@
 
 #include <map>
 #include <vector>
-
-#include "MNAComponent.h"
+#include "Component.h"
 
 /** @brief Stores the solution of a circuit.
  *
- * This class stores the voltage map, and every element that has
+ * This class stores the voltage map, and every component that has
  * a known current so that voltages can be calculated through V=IR.
  *
  */
-class MNASolution {
-
+class Solution {
 public:
-    /** @brief A list of elements in the solution which
+
+    /** @brief Initialiser
+     *
+     * @param voltageMap A map of node:voltage
+     * @param components A list of components in the solution which
      * have a known current.
      */
-    std::vector<MNAComponent*> elements;
+    Solution(std::map<int, double> voltageMap, std::vector<Component> components);
 
     /** @brief Get the voltage at a specific node.
      *
@@ -32,19 +34,19 @@ public:
      */
     double getNodeVoltage(int nodeIndex);
 
-    /** @brief Get the voltage of a specified element.
+    /** @brief Get the voltage of a specified component.
      *
-     * @param element The MNAComponent to check at.
-     * @return The voltage at that element.
+     * @param component The Component to check at.
+     * @return The voltage at that component.
      */
-    double getVoltage(MNAComponent element);
+    double getVoltage(Component component);
 
     /** @brief Gets the current at a resistor through I=V/R
      *
      * @param resistor The resistor to get the current of
      * @return The current at that resistor.
      */
-    double getCurrent(MNAComponent resistor);
+    double getCurrent(Component resistor);
 };
 
 

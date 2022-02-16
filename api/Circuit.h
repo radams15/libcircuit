@@ -8,31 +8,31 @@
 
 #include <vector>
 
-#include "MNAComponent.h"
-#include "MNASolution.h"
+#include "Component.h"
+#include "Solution.h"
 
 /** @brief Main class that holds a circuit for
  * modified nodal analysis (MNA).
  *
  */
-class MNACircuit {
+class Circuit {
 
 public:
-    /** @brief Initialises MNACircuit object.
+    /** @brief Initialises Circuit object.
      *
-     * This initialises the MNACircuit, as well as categorising
-     * the elements into the batteries, resistors and currentSources
+     * This initialises the Circuit, as well as categorising
+     * the components into the batteries, resistors and currentSources
      * vectors. Also generates nodeSet, nodeCount and nodes variables.
      *
-     * @param elements The list of all circuit elements.
+     * @param components The list of all circuit components.
     */
-    explicit MNACircuit(std::vector<MNAComponent *> elements);
+    Circuit(std::vector<Component> components);
 
     /** @brief Solves the circuit using linear algebra and matrices.
      *
-     * @return An MNASolution class for this circuit.
+     * @return An Solution class for this circuit.
      */
-    MNASolution* solve();
+    Solution solve();
 };
 
 #endif //CircuitTester_MNACIRCUIT_H
