@@ -11,9 +11,11 @@
 
 #include <Eigen/Core>
 
-#include "MNAComponent.h"
+#include "Component.h"
 #include "Unknown.h"
 #include "Term.h"
+
+class Circuit;
 
 /** @brief Class that holds an equation.
  *
@@ -32,14 +34,14 @@ public:
     /** @brief The value the terms equal
      * In 1a + 2b = 3 this is an array {1a, 2b}.
      */
-    std::vector<Term*> terms;
+    std::vector<Term> terms;
 
     /** @brief Initialiser
      *
      * @param value The value of the equation
      * @param terms The Term objects that equal the value when added.
      */
-    Equation(double value, std::vector<Term*> terms);
+    Equation(double value, std::vector<Term> terms);
 
     /** @brief Stamps the parts of this component onto the passed matrix to form the overall equation.
      *
@@ -48,7 +50,7 @@ public:
      * @param z Stores independent current and voltage sources.
      * @param getIndexFunc A function that returns the index of the Unknown on the circuit that is passed into it.
      */
-    void apply(int row, Eigen::MatrixXd* A, Eigen::MatrixXd* z, std::function<int(Unknown*)> getIndexFunc);
+    void apply(int row, Eigen::MatrixXd* A, Eigen::MatrixXd* z, std::vector<Unknown*> unknowns, Circuit* c);
 };
 
 
